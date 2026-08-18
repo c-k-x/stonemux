@@ -1,0 +1,60 @@
+# stonemux XcodeGen 工程定义
+# 生成: xcodegen generate
+# 构建: DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcodebuild -project stonemux.xcodeproj -scheme stonemux build
+
+name: stonemux
+
+packages:
+  # 用户明确批准引入：cmux 同款 markdown 渲染
+  MarkdownUI:
+    url: https://github.com/gonzalezreal/swift-markdown-ui
+    from: 2.4.0
+
+options:
+  bundleIdPrefix: dev.stonemux
+  createIntermediateGroups: true
+  developmentLanguage: en
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MACOSX_DEPLOYMENT_TARGET: "15.0"
+
+targets:
+  stonemux:
+    type: application
+    platform: macOS
+    sources:
+      - path: stonemux
+    resources:
+      # ghostty shell-integration（OSC 7 cwd 追踪依赖）
+      - path: Resources/shell-integration
+    dependencies:
+      - package: MarkdownUI
+      - sdk: Carbon.framework
+      # Ghostty 终端内核（静态库 + 头文件），不 embed
+      - framework: ../vendor/GhosttyKit.xcframework
+        embed: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dev.stonemux.app
+        PRODUCT_NAME: stonemux
+        INFOPLIST_FILE: stonemux/Info.plist
+        GENERATE_INFOPLIST_FILE: "NO"
+        # ghostty-internal.a 里有 C++ 目标文件
+        OTHER_LDFLAGS: ["-lstdc++"]
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGN_IDENTITY: "-"
+        ENABLE_HARDENED_RUNTIME: "NO"
+
+  # 控制面客户端：终端内 agent 可直接 exec
+  stonemux-ctl:
+    type: tool
+    platform: macOS
+    sources:
+      - path: ctl
+      # 协议类型与主 app 共用一份
+      - path: stonemux/ControlCommand.swift
+    settings:
+      base:
+        PRODUCT_NAME: stonemux-ctl

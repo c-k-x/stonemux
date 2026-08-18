@@ -1,0 +1,183 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Quit stonemux" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "退出 stonemux" } } }
+    },
+    "View" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "视图" } } }
+    },
+    "Split" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "分屏" } } }
+    },
+    "Open Browser" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "打开浏览器" } } }
+    },
+    "Close Panel" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "关闭面板" } } }
+    },
+    "Messages" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "消息" } } }
+    },
+    "Send Message…" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "发送消息…" } } }
+    },
+    "Reply to Last…" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "回复最近一条…" } } }
+    },
+    "stonemux failed to start" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "stonemux 启动失败" } } }
+    },
+    "Sessions" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "会话" } } }
+    },
+    "No sessions" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "无会话" } } }
+    },
+    "Enter URL or search term" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "输入 URL 或搜索词" } } }
+    },
+    "Close browser panel (⌘W)" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "关闭浏览器面板（⌘W）" } } }
+    },
+    "Send" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "发送" } } }
+    },
+    "Cancel" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "取消" } } }
+    },
+    "OK" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "好" } } }
+    },
+    "to (recipient agent_id, e.g. bob-claude)" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "to（对方 agent_id，如 bob-claude）" } } }
+    },
+    "subject" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "subject" } } }
+    },
+    "body" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "body" } } }
+    },
+    "Reply content" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "回复内容" } } }
+    },
+    "[%@] Receipt: %@ replied" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "[%@] 回执：%@ 回复了你" } } }
+    },
+    "[%@] stonemux message from %@" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "[%@] stonemux 消息：来自 %@" } } }
+    },
+    "Subject: %@" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "主题：%@" } } }
+    },
+    "Send stonemux message (from: %@)" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "发送 stonemux 消息（from: %@）" } } }
+    },
+    "Reply to %@" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "回复 %@" } } }
+    },
+    "(original had no subject)" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "(原消息无主题)" } } }
+    },
+    "Original subject: %@" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "原主题：%@" } } }
+    },
+    "Send failed: %@" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "发送失败：%@" } } }
+    },
+    "Reply failed: %@" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "回复失败：%@" } } }
+    },
+    "Current session has not received any message yet" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "当前会话还没有收到过消息，无从回复" } } }
+    },
+    "New Tab" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "新建标签" } } }
+    },
+    "Previous Tab" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "上一个标签" } } }
+    },
+    "Next Tab" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "下一个标签" } } }
+    },
+    "Toggle Dock" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "切换 Dock" } } }
+    },
+    "⌘+Click a file in the terminal to preview it here" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "在终端里 ⌘+点击文件可在此预览" } } }
+    },
+    "About stonemux" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "关于 stonemux" } } }
+    },
+    "A Ghostty-based terminal for AI coding agents" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "基于 Ghostty 的 AI coding agent 终端" } } }
+    },
+    "Settings…" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "设置…" } } }
+    },
+    "Hide stonemux" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "隐藏 stonemux" } } }
+    },
+    "Hide Others" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "隐藏其他" } } }
+    },
+    "Show All" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "全部显示" } } }
+    },
+    "File" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "文件" } } }
+    },
+    "New Session" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "新建会话" } } }
+    },
+    "Open Location…" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "打开地址…" } } }
+    },
+    "Open" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "打开" } } }
+    },
+    "Edit" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "编辑" } } }
+    },
+    "Undo" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "撤销" } } }
+    },
+    "Redo" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "重做" } } }
+    },
+    "Cut" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "剪切" } } }
+    },
+    "Copy" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "拷贝" } } }
+    },
+    "Paste" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "粘贴" } } }
+    },
+    "Select All" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "全选" } } }
+    },
+    "Toggle Sidebar" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "切换侧边栏" } } }
+    },
+    "Window" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "窗口" } } }
+    },
+    "Minimize" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "最小化" } } }
+    },
+    "Zoom" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "缩放" } } }
+    },
+    "Bring All to Front" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "前置全部窗口" } } }
+    },
+    "Help" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "帮助" } } }
+    },
+    "stonemux on GitHub" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "在 GitHub 上查看 stonemux" } } }
+    }
+  },
+  "version" : "1.0"
+}
