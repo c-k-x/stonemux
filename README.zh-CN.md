@@ -15,11 +15,19 @@
 
 ## 安装
 
+### Homebrew（推荐）
+
+```bash
+brew install c-k-x/stonemux/stonemux
+```
+
+### install.sh
+
 ```bash
 curl -sSL https://raw.githubusercontent.com/c-k-x/stonemux/main/install.sh | bash
 ```
 
-或从 [Releases](https://github.com/c-k-x/stonemux/releases) 手动下载 zip。
+或从 [Releases](https://github.com/c-k-x/stonemux/releases) 手动下载 DMG / zip。
 
 从源码构建见英文 README / `scripts/setup.sh`。
 

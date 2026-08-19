@@ -20,7 +20,13 @@ When two engineers each work with a coding agent (Claude Code, Codex, …), coor
 
 ## Install
 
-### Quick (recommended)
+### Homebrew (recommended)
+
+```bash
+brew install c-k-x/stonemux/stonemux
+```
+
+### install.sh
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/c-k-x/stonemux/main/install.sh | bash
@@ -28,7 +34,7 @@ curl -sSL https://raw.githubusercontent.com/c-k-x/stonemux/main/install.sh | bas
 
 Downloads the latest prebuilt `stonemux.app` + `stonemux-ctl` from GitHub Releases into `/Applications` and `/usr/local/bin`.
 
-Or grab the zip manually from [Releases](https://github.com/c-k-x/stonemux/releases).
+Or grab the DMG/zip manually from [Releases](https://github.com/c-k-x/stonemux/releases).
 
 ### From source
 
