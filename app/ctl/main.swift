@@ -25,6 +25,7 @@ func usage() -> Never {
       stonemux-ctl inbox [--session <id>]
       stonemux-ctl reply <id> [--body <b>] [--from <id>]
       stonemux-ctl ack <id> <delivered|read>
+      stonemux-ctl agents
     """)
     exit(1)
 }
@@ -107,6 +108,8 @@ case "reply":
 case "ack":
     guard positional.count >= 3 else { usage() }
     command = .ack(id: positional[1], status: positional[2])
+case "agents":
+    command = .agents
 default:
     usage()
 }

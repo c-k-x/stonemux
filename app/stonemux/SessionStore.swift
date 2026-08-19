@@ -14,6 +14,10 @@ final class SessionStore {
     var dockFileURL: URL?
     /// 会话被选中时的回调（消息层用来投递 pending）
     var onSessionSelected: ((Session) -> Void)?
+    /// P9：点击在线 peer 的回调（消息层用来预填发送）
+    var onPeerClicked: ((String) -> Void)?
+    /// P9：在线 peers（presence 目录，已排除自己）
+    var onlinePeers: [Peer] = []
     /// 左侧边栏可见性
     var sidebarVisible: Bool = true
 

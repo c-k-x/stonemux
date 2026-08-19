@@ -1,6 +1,13 @@
 import Foundation
 import Observation
 
+/// P9：在线 peer（presence 目录）
+struct Peer: Identifiable, Equatable {
+    let agentId: String
+    let name: String
+    var id: String { agentId }
+}
+
 /// 会话 = 一个 agent 身份（broker 地址化）+ 它的分屏布局 + 未读状态。
 /// sidebar 一行 = 一个 Session。
 @MainActor @Observable

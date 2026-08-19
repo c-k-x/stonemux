@@ -24,8 +24,50 @@ struct SidebarView: View {
                 }
                 .padding(.horizontal, 6)
             }
+            // P9：在线 peers
+            Divider()
+            Text(NSLocalizedString("Online", comment: ""))
+                .font(.headline)
+                .padding(.horizontal, 12)
+                .padding(.vertical, 8)
+            if store.onlinePeers.isEmpty {
+                Text(NSLocalizedString("No peers online", comment: ""))
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .padding(.horizontal, 12)
+            } else {
+                ScrollView {
+                    LazyVStack(spacing: 2) {
+                        ForEach(store.onlinePeers) { peer in
+                            PeerRow(store: store, peer: peer)
+                        }
+                    }
+                    .padding(.horizontal, 6)
+                }
+            }
             Spacer(minLength: 0)
         }
+    }
+}
+
+struct PeerRow: View {
+    let store: SessionStore
+    let peer: Peer
+
+    var body: some View {
+        HStack(spacing: 6) {
+            Circle().fill(Color.green).frame(width: 7, height: 7)
+            Text(peer.name).lineLimit(1)
+            Text(peer.agentId)
+                .font(.caption2)
+                .foregroundStyle(.secondary)
+                .lineLimit(1)
+            Spacer()
+        }
+        .padding(.horizontal, 8)
+        .padding(.vertical, 5)
+        .contentShape(Rectangle())
+        .onTapGesture { store.onPeerClicked?(peer.agentId) }
     }
 }
 

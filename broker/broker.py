@@ -30,6 +30,7 @@ import os
 import secrets
 import sqlite3
 import threading
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -248,6 +249,35 @@ def reply_msg(mid: str, reply: ReplyIn, authorization: str | None = Header(defau
             ),
         )
     return {"id": new_id, "status": "pending", "reply_to": mid}
+
+
+# ---- P9 presence：agent 在线感知 ----
+# agent_id -> {"name", "last_seen"}；心跳 15s，45s 无心跳视为离线。内存即可，重启靠心跳自愈。
+PRESENCE: dict[str, dict] = {}
+PRESENCE_TTL = 45
+
+
+class PresenceIn(BaseModel):
+    agent_id: str
+    name: str | None = None
+
+
+@app.post("/presence")
+def presence(p: PresenceIn, authorization: str | None = Header(default=None)):
+    _auth(authorization)
+    PRESENCE[p.agent_id] = {"name": p.name or p.agent_id, "last_seen": time.time()}
+    return {"ok": True}
+
+
+@app.get("/agents")
+def agents(authorization: str | None = Header(default=None)):
+    _auth(authorization)
+    now = time.time()
+    return [
+        {"agent_id": k, "name": v["name"], "last_seen": v["last_seen"]}
+        for k, v in PRESENCE.items()
+        if now - v["last_seen"] <= PRESENCE_TTL
+    ]
 
 
 if __name__ == "__main__":

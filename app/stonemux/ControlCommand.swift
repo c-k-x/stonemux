@@ -20,6 +20,7 @@ enum ControlCommand: Codable {
     case inbox(session: String?)
     case reply(id: String, from: String?, body: String)
     case ack(id: String, status: String)
+    case agents
 }
 
 struct ControlRequest: Codable {

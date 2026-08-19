@@ -9,6 +9,7 @@ final class MessagingController {
     private let store: SessionStore
     private let client: MessageClient
     private var pollTask: Task<Void, Never>?
+    private var presenceTask: Task<Void, Never>?
     /// seen 按 agent_id 分桶
     private var seen: [String: Set<String>] = [:]
     /// 每个会话最近一条收件（用于回复）
@@ -24,6 +25,10 @@ final class MessagingController {
         store.onSessionSelected = { [weak self] session in
             self?.flushPending(in: session)
         }
+        // P9：点击在线 peer → 预填发送
+        store.onPeerClicked = { [weak self] agentId in
+            self?.showSendSheet(prefillTo: agentId)
+        }
     }
 
     func start() {
@@ -33,9 +38,33 @@ final class MessagingController {
                 try? await Task.sleep(nanoseconds: 2_000_000_000)
             }
         }
+        // P9：心跳 + 拉在线目录（15s）
+        presenceTask = Task { [weak self] in
+            while !Task.isCancelled {
+                self?.beatOnce()
+                try? await Task.sleep(nanoseconds: 15_000_000_000)
+            }
+        }
     }
 
-    func stop() { pollTask?.cancel() }
+    func stop() {
+        pollTask?.cancel()
+        presenceTask?.cancel()
+    }
+
+    /// P9：上报自己所有会话的心跳，并刷新在线 peers（排除自己）
+    private func beatOnce() {
+        let sessions = store.sessions
+        Task { [weak self] in
+            guard let self else { return }
+            for s in sessions {
+                try? await self.client.beat(agentId: s.agentId, name: s.displayName)
+            }
+            guard let all = try? await self.client.agents() else { return }
+            let own = Set(sessions.map { $0.agentId })
+            self.store.onlinePeers = all.filter { !own.contains($0.agentId) }
+        }
+    }
 
     private func pollOnce() {
         let sessions = store.sessions
@@ -81,7 +110,7 @@ final class MessagingController {
 
     // MARK: 发送（from = 选中会话）
 
-    func showSendSheet() {
+    func showSendSheet(prefillTo: String? = nil) {
         guard let from = store.selectedSession, let window = store.window else { return }
         let alert = NSAlert()
         alert.messageText = String(format: NSLocalizedString("Send stonemux message (from: %@)", comment: ""), from.agentId)
@@ -91,6 +120,7 @@ final class MessagingController {
         // 固定尺寸容器 + 绝对定位（NSStackView 无约束时高度为 0）
         let box = NSView(frame: NSRect(x: 0, y: 0, width: 380, height: 104))
         let toField = NSTextField(frame: NSRect(x: 0, y: 76, width: 380, height: 24))
+        toField.stringValue = prefillTo ?? ""
         toField.placeholderString = NSLocalizedString("to (recipient agent_id, e.g. bob-claude)", comment: "")
         let subjectField = NSTextField(frame: NSRect(x: 0, y: 42, width: 380, height: 24))
         subjectField.placeholderString = NSLocalizedString("subject", comment: "")
@@ -180,5 +210,13 @@ final class MessagingController {
 
     func ackForCtl(id: String, status: String) async throws {
         try await client.ack(id: id, status: status)
+    }
+
+    /// P9：ctl agents —— 在线目录 JSON
+    func agentsForCtl() async throws -> String {
+        let peers = try await client.agents()
+        let rows = peers.map { ["agent_id": $0.agentId, "name": $0.name] }
+        let data = try JSONSerialization.data(withJSONObject: rows, options: [.prettyPrinted])
+        return String(data: data, encoding: .utf8) ?? "[]"
     }
 }

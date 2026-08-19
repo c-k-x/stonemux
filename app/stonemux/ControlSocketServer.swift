@@ -210,6 +210,10 @@ final class ControlSocketServer {
                 guard let messaging else { return .failure("broker 未配置") }
                 try await messaging.ackForCtl(id: id, status: status)
                 return .success("ok")
+
+            case .agents:
+                guard let messaging else { return .failure("broker 未配置") }
+                return .success(try await messaging.agentsForCtl())
             }
         } catch {
             return .failure(error.localizedDescription)

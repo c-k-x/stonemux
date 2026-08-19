@@ -177,6 +177,12 @@
     },
     "stonemux on GitHub" : {
       "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "在 GitHub 上查看 stonemux" } } }
+    },
+    "Online" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "在线" } } }
+    },
+    "No peers online" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "暂无在线的 peer" } } }
     }
   },
   "version" : "1.0"

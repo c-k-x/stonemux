@@ -81,4 +81,22 @@ final class MessageClient {
         let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
         return json?["id"] as? String ?? ""
     }
+
+    // MARK: P9 presence
+
+    /// 心跳上报
+    func beat(agentId: String, name: String) async throws {
+        _ = try await call("POST", "/presence", body: ["agent_id": agentId, "name": name])
+    }
+
+    /// 在线 agent 目录
+    func agents() async throws -> [Peer] {
+        struct AgentDTO: Codable {
+            let agent_id: String
+            let name: String
+        }
+        let data = try await call("GET", "/agents")
+        return try JSONDecoder().decode([AgentDTO].self, from: data)
+            .map { Peer(agentId: $0.agent_id, name: $0.name) }
+    }
 }
