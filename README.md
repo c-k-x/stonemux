@@ -23,19 +23,19 @@ When two engineers each work with a coding agent (Claude Code, Codex, …), coor
 ### Quick (recommended)
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/cuikexi/stonemux/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/c-k-x/stonemux/main/install.sh | bash
 ```
 
 Downloads the latest prebuilt `stonemux.app` + `stonemux-ctl` from GitHub Releases into `/Applications` and `/usr/local/bin`.
 
-Or grab the zip manually from [Releases](https://github.com/cuikexi/stonemux/releases).
+Or grab the zip manually from [Releases](https://github.com/c-k-x/stonemux/releases).
 
 ### From source
 
 Requirements: macOS 15+, Xcode, [XcodeGen](https://github.com/yonaskolb/XcodeGen), Zig 0.16 (for GhosttyKit), `curl` for the prebuilt GhosttyKit shortcut.
 
 ```bash
-git clone https://github.com/cuikexi/stonemux && cd stonemux
+git clone https://github.com/c-k-x/stonemux && cd stonemux
 ./scripts/setup.sh        # fetches GhosttyKit (pinned prebuilt) + generates project
 xcodebuild -project app/stonemux.xcodeproj -scheme stonemux -configuration Debug build
 ```

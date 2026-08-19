@@ -3,7 +3,7 @@
 # 用法: curl -sSL .../install.sh | bash      或      ./install.sh [tag]
 set -euo pipefail
 
-REPO=${STONEMUX_REPO:-cuikexi/stonemux}
+REPO=${STONEMUX_REPO:-c-k-x/stonemux}
 VER=${1:-latest}
 
 if [ "$VER" = "latest" ]; then

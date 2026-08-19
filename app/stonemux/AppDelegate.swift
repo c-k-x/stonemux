@@ -260,7 +260,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc private func helpGitHubAction(_ sender: Any?) {
-        if let url = URL(string: "https://github.com/cuikexi/stonemux") {
+        if let url = URL(string: "https://github.com/c-k-x/stonemux") {
             NSWorkspace.shared.open(url)
         }
     }
