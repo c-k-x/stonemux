@@ -29,6 +29,7 @@ targets:
     resources:
       # ghostty shell-integration（OSC 7 cwd 追踪依赖）
       - path: Resources/shell-integration
+      - path: Resources/AppIcon.icns
     dependencies:
       - package: MarkdownUI
       - sdk: Carbon.framework
